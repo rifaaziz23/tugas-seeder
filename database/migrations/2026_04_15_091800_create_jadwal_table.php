@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
-            $table->char('kode_mk', 8);
-            $table->char('nidn', 10);
+            $table->string('kode_mk', 8);
+            $table->unsignedBigInteger('nidn');
 
             $table->char('kelas', 1);
             $table->string('hari', 10);

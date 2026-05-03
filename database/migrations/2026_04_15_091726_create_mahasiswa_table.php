@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->char('npm', 10)->primary();
-            $table->char('nidn', 10);
+            $table->string('npm', 10)->primary();
+            $table->unsignedBigInteger('nidn');
             $table->string('nama', 50);
             $table->timestamps();
 

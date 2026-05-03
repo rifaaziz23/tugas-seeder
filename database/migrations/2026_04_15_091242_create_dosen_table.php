@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('dosen', function (Blueprint $table) {
-            $table->char('nidn', 10)->primary();
+            $table->unsignedBigInteger('nidn')->primary();
             $table->string('nama', 50);
             $table->timestamps();
         });

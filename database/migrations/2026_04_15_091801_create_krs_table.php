@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('krs', function (Blueprint $table) {
             $table->id();
-            $table->char('npm', 10);
-            $table->char('kode_mk', 8);
+            $table->string('npm', 10);
+            $table->string('kode_mk', 8);
             $table->timestamps();
 
             $table->foreign('npm')->references('npm')->on('mahasiswa')->onDelete('cascade');

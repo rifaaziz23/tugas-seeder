@@ -12,8 +12,8 @@ class Mahasiswa extends Model
 
     protected $fillable = [
         'npm',
-        'nidn',
-        'nama'
+        'nama',
+        'nidn'
     ];
 
     public function dosen()
