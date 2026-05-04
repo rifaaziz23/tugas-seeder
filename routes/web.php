@@ -7,18 +7,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// READ DATA
-Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
 
-// READ DETAIL DATA
-Route::get('/mahasiswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
+Route::prefix('mahasiswa')->group(function () {
+    // READ DATA
+    Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
 
-// CREATE DATA
-Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+    // READ DETAIL DATA
+    Route::get('/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
 
-// EDIT DATA
-Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
-Route::put('/mahasiswa/update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+    // CREATE DATA
+    Route::get('/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+    Route::post('/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
 
-// DELETE DATA
+    // EDIT DATA
+    Route::get('/edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+    Route::put('/update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+
+    // DELETE DATA
+});
+
