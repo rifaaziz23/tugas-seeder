@@ -24,5 +24,6 @@ Route::prefix('mahasiswa')->group(function () {
     Route::put('/update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
 
     // DELETE DATA
+    Route::get('/delete/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete');
 });
 
