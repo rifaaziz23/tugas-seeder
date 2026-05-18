@@ -4,6 +4,18 @@
     <div class="container">
         <div class="d-flex justify-content-around align-items-center mt-4">
             <h1 class="text-center">Data Mahasiswa</h1>
+            <form class="d-flex align-items-center">
+                <select class="d-flex align-items-center" name="perPage" onchange="this.form.submit()">
+                    <option value="5" {{ request('perPage') == 5 ? 'selected' : '' }}>5</option>
+                    <option value="10" {{ request('perPage') == 10 ? 'selected' : '' }}>10</option>
+                    <option value="15" {{ request('perPage') == 15 ? 'selected' : '' }}>15</option>
+                    <option value="20" {{ request('perPage') == 20 ? 'selected' : '' }}>20</option>
+                </select>
+                <div class="input-group mb-3">
+                    <input name="keyword" type="text" class="form-control" placeholder="Cari data..">
+                    <button type="submit" class="btn btn-success">Cari</button>
+                </div>
+            </form>
             <a href="{{ route('mahasiswa.create') }}" class="btn btn-primary">Tambah Mahasiswa</a>
         </div>
         @session('success')
@@ -23,9 +35,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($mahasiswa as $mhs)
+                    @foreach ($mahasiswa as $index => $mhs)
                         <tr>
-                            <td>{{ $mahasiswa->firstItem() + $loop->index }}</td>
+                            <td>{{ $mahasiswa->firstItem() + $index }}</td>
                             <td>{{ $mhs->npm }}</td>
                             <td>{{ $mhs->nama }}</td>
                             <td>{{ $mhs->dosen->nama ?? 'Tidak Ada' }}</td>
